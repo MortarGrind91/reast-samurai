@@ -1,0 +1,32 @@
+.friendsBlock{
+  margin-top: 50px;
+}
+
+.friendsTitle{
+  color: #ffffff;
+  font-size: 48px;
+  padding-bottom: 10px;
+}
+
+.friendsBox{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+}
+
+.friendItemImage{
+  width: 60px;
+  height: 60px;
+}
+
+.friendItemImage img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.friendItemName{
+  text-align: center;
+  color: #ffffff;
+}

@@ -1,0 +1,42 @@
+.dialogs{
+  display: grid;
+  grid-template-columns: 2fr 10fr;
+}
+
+
+.dialogsItems .dialog a.active{
+  text-decoration: underline;
+}
+
+.dialogsItems .dialog{
+  padding: 10px;
+}
+
+.dialogsItems .dialog a{
+  color: inherit;
+  text-decoration: none;
+}
+
+.messages{
+
+}
+
+.message{
+  padding: 10px;
+}
+
+.messageWindowBox{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 100px;
+}
+
+.messageWindow{
+  width: 400px;
+}
+
+.messageWindow textarea{
+  width: 100%;
+  height: 100px;
+}

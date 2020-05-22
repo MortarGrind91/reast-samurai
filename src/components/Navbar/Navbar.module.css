@@ -1,0 +1,23 @@
+.nav{
+  grid-area: nav;
+  background-color: burlywood;
+  padding: 15px 15px;
+}
+
+.nav .item a{
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.item a.active{
+  color: darkred;
+}
+
+.nav .item:not(:first-child){
+  padding-top: 15px;
+}
+
+.nav .item:last-child{
+  padding-top: 50px;
+}

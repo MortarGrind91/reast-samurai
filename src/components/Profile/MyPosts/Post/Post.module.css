@@ -1,0 +1,17 @@
+
+.item{
+  color: darkviolet;
+  margin-top: 25px;
+}
+
+.item__image{
+  width: 90px;
+  height: 90px;
+}
+
+.item__image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
