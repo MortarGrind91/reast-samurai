@@ -1,9 +1,6 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-//my const message creator
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
-const UPDATE_NEW_USER_NAME = 'UPDATE-NEW-USER-NAME';
+import profileReducer from './profile-reducer';
+import dialogsReducer from './dialogs-reducer';
+import sidebarReducer from './sidebar-reducer';
 
 let store = {
   _state:{
@@ -43,14 +40,14 @@ let store = {
         {id: 3, message: 'You'},
         {id: 4, message: 'You'}
       ],
-      newMessageText: 'Hello',
+      newMessageText: '',
       dialogs: [
         {id: 1, name: 'Dima'},
         {id: 2, name: 'Ann'},
         {id: 3, name: 'Sveta'},
         {id: 4, name: 'Valera'}
       ],
-      newUserName: 'User',
+      newUserName: '',
 
     },
     sidebar:{
@@ -87,66 +84,10 @@ let store = {
   },
 
   dispatch(action){
-    if(action.type === ADD_POST){
-      let newPost = {
-        id: 5,
-        post: this._state.profilePage.newPostText,
-        likesCount: 0,
-        image: 'https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/8b8/750_400_1/pochemu_kotenok_lizhet_volosy_i_zaryvaetsja_v_nih.jpg?152818987087154'
-      };
-    
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    }else if(action.type === UPDATE_NEW_POST_TEXT){
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    }else if(action.type === ADD_MESSAGE){
-      let newMessage = {
-        id: 5,
-        message: this._state.dialogsPage.newMessageText
-      };
-
-      let newUser = {
-        id: 5,
-        name: this._state.dialogsPage.newUserName,
-      }
-      this._state.dialogsPage.message.push(newMessage);
-      this._state.dialogsPage.dialogs.push(newUser);
-
-      this._state.dialogsPage.newMessageText = '';
-      this._state.dialogsPage.newUserName = '';
-      this._callSubscriber(this._state);
-    }else if(action.type === UPDATE_NEW_MESSAGE){
-      this._state.dialogsPage.newMessageText = action.newMessageText;
-      this._callSubscriber(this._state);
-    }else if(action.type === UPDATE_NEW_USER_NAME){
-      this._state.dialogsPage.newUserName = action.newUserName;
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+    this._callSubscriber(this._state);
   }
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostTextActionCreator = (text) => ({
-  type: UPDATE_NEW_POST_TEXT, 
-  newText: text
-});
-
-//my message creator
-export const addMessageActionCreator = () => ({ 
-  type: ADD_MESSAGE,
-});
-
-export const updateNewMessageActionCreator = (newMessage) => ({
-  type: UPDATE_NEW_MESSAGE,
-  newMessageText: newMessage,
-});
-
-export const updateNewUeserActionCreator = (userName) => ({
-  type: UPDATE_NEW_USER_NAME,
-  newUserName: userName
-});
 
 export default store;

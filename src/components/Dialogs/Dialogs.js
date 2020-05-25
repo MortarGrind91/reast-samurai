@@ -2,26 +2,23 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
-import { addMessageActionCreator, updateNewMessageActionCreator, updateNewUeserActionCreator} from './../../redux/state'; 
+import { addMessageActionCreator, updateNewMessageActionCreator, updateNewUeserActionCreator} from './../../redux/dialogs-reducer'; 
 
 const Dialogs = (props) => {
   let dialogsElement = props.state.dialogs.map(d => <DialogItem id={d.id} name={d.name} />);
   let messageElement = props.state.message.map(m => <Message message={m.message} />);
 
-  const messageElementText = React.createRef();
-  const messageName = React.createRef();
-
   let addMessage = () => {
     props.dispatch(addMessageActionCreator());
   }
 
-  let onChangeUserName = () => {
-    let userName = messageName.current.value;
+  let onChangeUserName = (e) => {
+    let userName = e.target.value;
     props.dispatch(updateNewUeserActionCreator(userName));
   }
 
-  let onChangeMessage = () => {
-    let messageText = messageElementText.current.value;
+  let onChangeMessage = (e) => {
+    let messageText = e.target.value;
     props.dispatch(updateNewMessageActionCreator(messageText));
   }
 
@@ -39,13 +36,11 @@ const Dialogs = (props) => {
         <div className={s.messageField}>
           <input type="text"
             value={props.state.newUserName}
-            onChange={onChangeUserName} 
-            ref={messageName}/>
+            onChange={onChangeUserName} />
         </div>
         <div className={s.messageWindow}>
           <textarea 
             value={props.state.newMessageText}
-            ref={messageElementText} 
             onChange={onChangeMessage}/>
         </div>
         <div className={s.messageSend}>
