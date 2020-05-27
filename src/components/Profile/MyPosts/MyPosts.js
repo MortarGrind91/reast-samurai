@@ -30,7 +30,7 @@ const MyPosts = (props) => {
         {postElements}
       </div>
       <hr />
-      <div>Посмотрел 41 урок</div>
+      <div>Посмотрел 44 урок</div>
     </div>
   )
 }
