@@ -3,9 +3,7 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-  
-  let postElements = props.posts.
-    map(p => <Post message={p.post} count={p.likesCount} avatar={p.image} />);
+  let postElements = props.posts.map(p => <Post message={p.post} key={p.id} count={p.likesCount} avatar={p.image} />);
     
   let onAddPost = () => {
     props.addPost();
@@ -30,7 +28,7 @@ const MyPosts = (props) => {
         {postElements}
       </div>
       <hr />
-      <div>Посмотрел 44 урок</div>
+      <div>Посмотрел 55 уроков</div>
     </div>
   )
 }

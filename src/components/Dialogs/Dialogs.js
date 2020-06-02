@@ -4,8 +4,8 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
-  let dialogsElement = props.state.dialogs.map(d => <DialogItem id={d.id} name={d.name} />);
-  let messageElement = props.state.message.map(m => <Message message={m.message} />);
+  let dialogsElement = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} key={d.id} name={d.name} />);
+  let messageElement = props.dialogsPage.message.map(m => <Message message={m.message} key={m.id}/>);
 
   let onAddMessage = () => {
     props.addMessage();
@@ -34,12 +34,12 @@ const Dialogs = (props) => {
       <div className={s.messageWindowBox}>
         <div className={s.messageField}>
           <input type="text"
-            value={props.state.newUserName}
+            value={props.dialogsPage.newUserName}
             onChange={onChangeUserName} />
         </div>
         <div className={s.messageWindow}>
           <textarea 
-            value={props.state.newMessageText}
+            value={props.dialogsPage.newMessageText}
             onChange={onChangeMessage}/>
         </div>
         <div className={s.messageSend}>

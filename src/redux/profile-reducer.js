@@ -32,22 +32,28 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
-
   switch(action.type){
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 5,
         post: state.newPostText,
         likesCount: 0,
         image: 'https://opt-1031816.ssl.1c-bitrix-cdn.ru/upload/resize_cache/iblock/8b8/750_400_1/pochemu_kotenok_lizhet_volosy_i_zaryvaetsja_v_nih.jpg?152818987087154'
       };
-    
-      state.posts.push(newPost);
-      state.newPostText = '';
-      return state;
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+
+      return{
+        ...state,
+        newPostText: '',
+        posts: [...state.posts, newPost]
+      };
+
+    }
+    case UPDATE_NEW_POST_TEXT:{
+      return{
+        ...state,
+        newPostText: action.newText
+      }
+    }
     default:
       return state;
   }
