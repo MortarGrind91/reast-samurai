@@ -22,4 +22,21 @@ img{
   grid-area: content;
   background-color: lightblue;
   padding: 15px;
+  position: relative;
+  overflow: hidden;
+}
+
+.preloader{
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: lightblue;
+}
+
+.preloader img{
+  position: absolute;
+  top: calc(50% - 200px);
+  left: calc(50% - 100px);
 }
