@@ -1,0 +1,61 @@
+.imageUser{
+  position: relative;
+}
+
+.profile{
+  padding: 30px 0;
+}
+
+.profileFullName{
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.profilePhoto{
+  position: absolute;
+  bottom: 0px;
+  transform: translateY(25px);
+  left: calc(50% - 75px);
+  width: 150px;
+  height: 150px;
+  border: 5px solid #fff;
+  border-radius: 50%;
+}
+
+.profileInfoSocialList{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.profileInfoSocialList li:not(:first-child){
+  margin-left: 15px;
+}
+
+.profileInfoSocialList li a img{
+  width: 32px;
+  height: 32px;
+}
+
+.profileInfoSocialList li a:hover img {
+  opacity: .8;
+}
+
+.profilePhoto img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.profileInfoJob{
+  text-align: center;
+}
+
+.profileInfoAbout{
+  padding: 10px 0;
+  text-align: center;
+}

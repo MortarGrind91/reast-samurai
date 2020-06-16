@@ -3,8 +3,19 @@
   background-color: lightgreen;
   align-items: center;
   height: 60px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .header img{
   width: 120px;
+}
+
+.loginBlock{
+  margin-right: 50px;
+}
+
+.loginBlock a{
+  text-decoration: none;
+  color: #000;
 }
