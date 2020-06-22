@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
+import { Redirect } from 'react-router-dom';
 
 const Dialogs = (props) => {
   let dialogsElement = props.dialogsPage.dialogs.map(d => <DialogItem id={d.id} key={d.id} name={d.name} />);
@@ -21,6 +22,7 @@ const Dialogs = (props) => {
     props.updateMessage(messageText)
   }
 
+  
   return (
     <>
       <div className={s.dialogs}>
