@@ -27,12 +27,23 @@ export const usersAPI = {
 }
 
 export const profileAPI = {
-  getProfile(userId = 2) {
+  getProfile(userId = 8654) {
     return instanse.get(`profile/${userId}`)
       .then(response => {
         return response.data;
       });
+  },
+
+  getStatus(userId = 8654) {
+    return instanse.get(`profile/status/${userId}`).then(r => {
+      return r.data;
+    });
+  },
+
+  updateStatus(status) {
+    return instanse.put('profile/status/', { status });
   }
+
 }
 
 export const authAPI = {
